@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="css/Dev/login.css" />
+<div id="boxLogin">
+
+  <h1>Login de Usuario</h1>
+
+  <strong>Usuario:</strong></p><input type="text" name="" ng-model="username" class="form-control"/>
+  <strong>Contraseña:</strong></p><input type="password" name="" ng-model="password" class="form-control"/>
+
+  <div id="loginButton" >
+    <a ng-disabled="password==undefined || password.length==0 ||username==undefined || username.length==0 "class="btn btn-lg btn-success" ng-click="doLogin();"><i class="fa fa-power-off fa-lg pull-left"></i> Acceder</a>
+  </div>
+
+  <p ng-show="errorLogin==1" id="errorLogin">El nombre de usuario o la contraseña no son correctos</p>
+
+</div>
+

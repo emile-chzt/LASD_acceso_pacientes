@@ -1,0 +1,27 @@
+
+#logout{
+	float:right;
+	margin-right: 50px;
+	margin-top:-30px;
+}
+.table-container {
+    width: 50%; /* Largeur du tableau */
+    margin: 0 auto; /* Centre le tableau */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.column-header {
+    background-color: #33ACFF; /* Fond bleu pour les en-têtes de colonne */
+    color: white; /* Texte blanc pour les en-têtes de colonne */
+    font-weight: bold; /* Texte en gras pour les en-têtes de colonne */
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
