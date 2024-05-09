@@ -12,11 +12,12 @@
             <a class="btn btn-success" id="buttonOption" ng-click="showForm();" ng-show="addWeight==0" href="#">
                 <i class="fa fa-plus fa-lg"></i> Añadir</a>
 
-            <a class="btn btn-success" id="buttonOption" ng-click="changeView(1);" ng-show="showGraph==0&&addWeight==0" href="#">
-                <i class="fa fa-eye fa-lg"></i> Gráfico</a>
+            <a class="btn btn-success" id="buttonOption" ng-click="toggleView();" href="#">
+                    <i class="fa fa-list fa-lg"></i> {{ tabLabel }}
+                </a>
 
-            <a class="btn btn-success" id="buttonOption" ng-click="changeView(0);" ng-show="showGraph==1&&addWeight==0" href="#">
-                <i class="fa fa-list fa-lg"></i> Listado</a>
+            
+
                 <div id="addWeightForm" ng-show="addWeight==1">
                     <form name="add_a_weight" novalidate>
                         <table>
@@ -42,7 +43,22 @@
                     </form>
 
                 </div>
-
+                <div id="weightsList" class="table-container" ng-show="showList==1">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="column-header">Peso</th>
+                                <th class="column-header">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="weight in weightsList">
+                                <td>{{weight.PESO}}</td>
+                                <td>{{weight.FECHA_ALTER}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             <div id="weightsGraph" ng-if="showGraph==1">
                 <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
                 </div>

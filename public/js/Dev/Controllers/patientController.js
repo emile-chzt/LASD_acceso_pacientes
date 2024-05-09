@@ -6,14 +6,31 @@ MyApp.controller(
       $window.localStorage.removeItem("PatientID");
       $location.path("/");
     };
+    $scope.tabLabel = "Listado";
 
     $scope.addWeight = 0;
     $scope.showGraph = 1;
+    $scope.showList = 0;
     $scope.swowAddWeight = 1;
     $scope.PatientID = $window.localStorage.getItem("PatientID");
     $scope.WeightData = {
       Weight: "",
       Date: "",
+    };
+    $scope.toggleView = function () {
+      if ($scope.showGraph === 0) {
+        $scope.showGraph = 1;
+        $scope.showList = 0;
+        $scope.tabLabel = "Listado";
+        console.log("show graph", $scope.showGraph);
+        console.log("show list", $scope.showList);
+      } else {
+        $scope.showGraph = 0;
+        $scope.tabLabel = "Gráfico";
+        $scope.showList = 1;
+        console.log("show graph", $scope.showGraph);
+        console.log("show list", $scope.showList);
+      }
     };
 
     //functions
