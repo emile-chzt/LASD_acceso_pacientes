@@ -1,0 +1,21 @@
+#boxLogin{
+	width: 30%;
+	margin: auto;
+	background-color: #E0ECF8;
+	padding:10px;
+	border-radius: 10px;
+	margin-top:70px;
+
+}
+#loginButton{
+	text-align:center;
+	margin-bottom: 20px;
+	margin-top:25px;
+}
+#errorLogin{
+	font-weight:bold;
+	font-size: 13px;
+	color:#CA7358;
+	margin-top:10px;
+	text-align: center;
+}
