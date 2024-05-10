@@ -50,6 +50,7 @@ module.exports = function (app, express) {
 
   // Pesos del paciente
   // ----------------------------------------------------
+
   apiRouter
     .route("/weights/:patientId")
 
@@ -90,6 +91,30 @@ module.exports = function (app, express) {
         );
       });
     });
+  //deleting a weight
+  apiRouter
+    .route("/deleteWeights/:weightId/:patientId")
+    .delete(function (req, res) {
+      var weightId = req.params.weightId;
+      var patientId = req.params.patientId;
+      console.log(
+        "deleteWeights of id: " + weightId + " from patient: " + patientId
+      );
+      req.getConnection(function (err, conn) {
+        if (err) return next("Cannot Connect");
 
+        var query = conn.query(
+          "DELETE FROM tbpeso WHERE PESO_ID = ? AND PAC_ID = ?",
+          [weightId, patientId],
+          function (err, weight) {
+            if (err) {
+              console.log(err);
+              return next("Mysql error, check your query");
+            }
+            res.json(weight);
+          }
+        );
+      });
+    });
   return apiRouter;
 };

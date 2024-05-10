@@ -8,6 +8,7 @@
     "express-myconnection": "*",
     "mysql": "*",
     "jsonwebtoken": "^1.2.0",
-    "connect-multiparty": "~1.2.5"
+    "connect-multiparty": "~1.2.5",
+    "d3-scale": "^3.2.1"
   }
 }

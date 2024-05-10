@@ -15,6 +15,7 @@ angular
 
     // get associated weights
     patientFactory.Weights = function (id) {
+      console.log("getting weights via patientFactory.Weights");
       return $http.get("/api/weights/" + id);
     };
 
@@ -26,7 +27,11 @@ angular
 
       return $http.post("/api/weights/" + id, data);
     };
-
+    // delete a weight
+    patientFactory.deleteWeight = function (weightID, patientID) {
+      console.log("deleting via patientFactory.deleteWeight");
+      return $http.delete("/api/deleteWeights/" + weightID + "/" + patientID);
+    };
     // return our entire userFactory object
     return patientFactory;
   });
