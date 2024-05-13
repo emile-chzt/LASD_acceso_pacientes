@@ -116,5 +116,41 @@ module.exports = function (app, express) {
         );
       });
     });
+  //get the doctors
+  apiRouter.route("/doctors").get(function (req, res) {
+    req.getConnection(function (err, conn) {
+      if (err) return next("Cannot Connect");
+
+      var query = conn.query(
+        "SELECT * FROM tbmedicos",
+        function (err, doctors) {
+          if (err) {
+            console.log(err);
+            return next("Mysql error, check your query");
+          }
+          res.json(doctors);
+        }
+      );
+    });
+  });
+  //get the visits for this patient
+  apiRouter.route("/visits/:patientId").get(function (req, res) {
+    var patientId = req.params.patientId;
+    req.getConnection(function (err, conn) {
+      if (err) return next("Cannot Connect");
+
+      var query = conn.query(
+        "SELECT * FROM tbvisitas WHERE PAC_ID = ?",
+        patientId,
+        function (err, visits) {
+          if (err) {
+            console.log(err);
+            return next("Mysql error, check your query");
+          }
+          res.json(visits);
+        }
+      );
+    });
+  });
   return apiRouter;
 };

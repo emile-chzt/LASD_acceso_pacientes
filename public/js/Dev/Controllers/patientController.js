@@ -203,5 +203,24 @@ MyApp.controller(
     };
 
     $scope.refreshWeights();
+    //get all doctors
+    $scope.doctors = [];
+    Patient.getDoctors().success(function (data) {
+      $scope.doctors = data;
+      console.log("len doctors", $scope.doctors.length);
+    });
+
+    $scope.getDoctorById = function (doctorId) {
+      // Find and return the doctor with the matching ID
+      return $scope.doctors.find(function (doctor) {
+        return doctor.MED_ID === doctorId; // Assuming 'id' is the property holding the doctor ID
+      });
+    };
+    //get the visits for this patient
+    $scope.visits = [];
+    Patient.getVisitsByID($scope.PatientID).success(function (data) {
+      $scope.visits = data;
+      console.log("len visits", $scope.visits.length);
+    });
   }
 );

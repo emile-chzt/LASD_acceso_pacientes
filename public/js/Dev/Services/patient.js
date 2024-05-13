@@ -32,6 +32,16 @@ angular
       console.log("deleting via patientFactory.deleteWeight");
       return $http.delete("/api/deleteWeights/" + weightID + "/" + patientID);
     };
+    //get all doctors
+    patientFactory.getDoctors = function () {
+      console.log("getting doctors via patientFactory.getDoctors");
+      return $http.get("/api/doctors");
+    };
+    // get visits by ID
+    patientFactory.getVisitsByID = function (id) {
+      console.log("getting visits via patientFactory.getVisitsByID");
+      return $http.get("/api/visits/" + id);
+    };
     // return our entire userFactory object
     return patientFactory;
   });
